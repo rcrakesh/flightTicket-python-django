@@ -1,0 +1,17 @@
+{% comment %} {% extends 'main/base.html' %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+<center><h1> Home Page </h1></center>
+
+<form action="add" method="POST">
+    {% csrf_token %}
+    enter num1 : <input type="number" name="num1"><br>
+    enter num2 : <input type="number" name="num2"><br>
+    <input  type="submit">
+</form>
+
+{% endblock %} {% endcomment %}

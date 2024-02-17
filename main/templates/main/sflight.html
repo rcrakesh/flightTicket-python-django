@@ -1,0 +1,91 @@
+{% load static %}
+<html>
+<head>
+    
+
+</head>
+<body>
+    <style>
+        body{
+            color:white;
+            background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url("{% static 'images1/flight2.jpg' %}");
+            background-size: cover; 
+        background-position: center; 
+        background-repeat: no-repeat;
+        }
+        img{
+            width: 70px;
+            height: 70px
+        }
+        .container{
+            width:50%;
+            height:50%;
+            border : 1px solid white;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <center>
+        <form method = "POST" action="{% url 'sflight' %}">
+    <h2>Available Flights</h2>
+    <p><bold><u>Air India</u><bold></p>  
+    <div class="container">
+        <img src="{% static 'images1/flight3.jpg' %}" alt="Air India Flight"><hr>
+        <p>From: {{ flight.airport1 }} --------> To: {{ flight.airport2 }}</p>    
+        <p>Departing Date: {{ flight.departing_date }} Time:5pm IST</p>
+        <button type="button" value="BOOK NOW" name="booknow"><a href="{% url 'plane' flight_id=flight.id %}"><span></span>Book Tickets</a></button>
+       
+        <hr>
+        <p>From: {{ flight.airport2 }} --------> To: {{ flight.airport1 }}</p>    
+        <p>Returning Date: {{ flight.returning_date }} Time:7pm IST</p>
+        <button type="button" value="BOOK NOW" name="booknow"><a href="{% url 'plane' flight_id=flight.id %}"><span></span>Book Tickets</a></button>
+    </div>
+    <p><bold><u>SpiceJet</u><bold></p>  
+        <div class="container">
+            <img src="{% static 'images1/flight4.jpg' %}" alt="Air India Flight"><hr>
+            <p>From: {{ flight.airport1 }} --------> To: {{ flight.airport2 }}</p>    
+            <p>Departing Date: {{ flight.departing_date }} Time:8pm IST</p>
+            <button type="button" value="BOOK NOW" name="booknow"><a href="{% url 'plane' flight_id=flight.id %}"><span></span>Book Tickets</a></button>
+           
+            <hr>
+            <p>From: {{ flight.airport2 }} --------> To: {{ flight.airport1 }}</p>    
+            <p>Returning Date: {{ flight.returning_date }} Time:3am IST</p>
+            <button type="button" value="BOOK NOW" name="booknow"><a href="{% url 'plane' flight_id=flight.id  %}"><span></span>Book Tickets</a></button>
+        </div>
+        <p><bold><u>IndiGo</u><bold></p>  
+            <div class="container">
+                <img src="{% static 'images1/flight5.jpg' %}" alt="Air India Flight"><hr>
+                <p>From: {{ flight.airport1 }} --------> To: {{ flight.airport2 }}</p>    
+                <p>Departing Date: {{ flight.departing_date }} Time:9am IST</p>
+                <button type="button" value="BOOK NOW" name="booknow"><a href="{% url 'plane' flight_id=flight.id  %}"><span></span>Book Tickets</a></button>
+               
+                <hr>
+                <p>From: {{ flight.airport2 }} --------> To: {{ flight.airport1 }}</p>    
+                <p>Returning Date: {{ flight.returning_date }} Time:4pm IST</p>
+                <button type="button" value="BOOK NOW" name="booknow"><a href="{% url 'plane' flight_id=flight.id  %}"><span></span>Book Tickets</a></button>
+            </div>    
+        </form>
+
+
+
+
+    {% comment %} <ul>
+            <h1>Selected Flight Details</h1>
+            <p>From: {{ flight.airport1 }}</p>
+            <p>To: {{ flight.airport2 }}</p>
+            <p>Departing Date: {{ flight.departing_date }}</p>
+            <p>Returning Date: {{ flight.returning_date }}</p>
+    </ul> {% endcomment %}
+    </center>
+</body>
+</html>

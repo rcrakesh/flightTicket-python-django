@@ -1,0 +1,172 @@
+{% load static %}
+<html>
+<head>
+<title> Flight Ticket Booking Form</title>
+</head>
+
+
+<body>
+<style>
+    body{
+        display:flex;
+        margin-left: 550px;
+        background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url("{% static 'images1/flight2.jpg' %}");
+        background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    }
+    .side {
+        
+        width: 300px;
+        margin: 20px;
+        padding: 20px;
+        border: 1px solid black;
+        border-radius: 5px;
+
+        color: white;
+    }
+    
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    label {
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+    
+    select,
+    input[type="date"] {
+        margin-bottom: 10px;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    
+    input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+    
+</style>
+
+
+
+
+{% comment %} <div class="booking-form-box">
+<div class="radio-btn">
+<input type="radio" class="btn" name="check" checked="checked">
+<span>Roundtrip</span>
+<input type="radio" class="btn" name="check"><span>one way</span>
+<input type="radio" class="btn" name="check"><span>multy-city</span>
+</div>
+<br>
+
+<div class="booking-form">
+<label>Flying Form</label>
+<!-- <input type="text" class="form-control" placeholder="City or Airport"> -->
+ {% comment %} <select id="#" name="Airport1" required>
+    <option value="null">select Airport</option>
+    <option value="{{dest1.d1}}">{{dest1.d1}}</option>
+    <option value="{{dest1.d2}}">{{dest1.d2}}</option>
+    <option value="{{dest1.d3}}">{{dest1.d3}}</option>
+    <option value="{{dest1.d4}}">{{dest1.d4}}</option>
+    </select>  {% endcomment %}
+    {% comment %} <select id="Airport1" name="Airport1" required>
+        <option value="null">Select Airport</option>
+        {% for key, value in dest1.items %}
+            <option value="{{ value }}">{{ value }}</option>
+        {% endfor %}
+    </select>
+<br>
+<br>
+<label>Flying To</label> {% endcomment %}
+<!-- <input type="text" class="form-control" placeholder="City or Airport"> -->
+{% comment %} <select id="#" name="Airport2" required>
+    <option value="null">select Airport</option>
+    <option value="{{dest2.d11}}">{{dest2.d11}}</option>
+    <option value="{{dest2.d22}}">{{dest2.d22}}</option>
+    <option value="{{dest2.d33}}">{{dest2.d33}}</option>
+    <option value="{{dest2.d44}}">{{dest2.d44}}</option>
+    </select> {% endcomment %}
+
+    {% comment %} <select id="Airport2" name="Airport2" required>
+        <option value="null">Select Airport</option>
+        {% for key, value in dest2.items %}
+            <option value="{{ value }}">{{ value }}</option>
+        {% endfor %}
+    </select>
+<br>
+<div class="input-grp"> {% endcomment %}
+
+{% comment %} </div><br>
+<label>Departing</label>
+<input type="date" class="from-control select-date">
+<div class="input-grp">
+<label>Returing</label>
+<input type="date" class="from-control select-date">
+</div>
+<br><br>
+<div class="input-grp">
+<label>Adults</label>
+<input type="number" class="from-control" value="1">
+</div>
+<div class="input-grp">
+<label>Childern</label>
+<input type="number" class="from-control" value="0">
+</div>
+<br><br>
+<div class="input-grp">
+<label>Travel Class</label>
+<select class="custom-select">
+<option value="1">Economy Class</option>
+<option value="2">Business Class</option>
+</select>
+</div>
+<br>
+<br> {% endcomment %}
+<!-- flights/templates/flights/search_flights.html -->
+{% comment %} <input type="button" value="submit"> {% endcomment %}
+
+{% comment %} <div class="input-grp">
+<button type="button" class="btn btn-primary flight">Show Flight</button>
+</div> {% endcomment %}
+{% comment %} </div>
+</div>  {% endcomment %}
+
+
+<div class="side">
+    <form method = "POST" action="{% url 'sflight' %}">
+        {% csrf_token %}
+        <label>Flying Form</label>
+        <select id="Airport1" name="Airport1" required>
+            <option value="null">Select Airport</option>
+            {% for key, value in dest1.items %}
+                <option value="{{ value }}">{{ value }}</option>
+            {% endfor %}
+        </select><br>
+        <label>Flying To</label>
+        <select id="Airport2" name="Airport2" required>
+            <option value="null">Select Airport</option>
+            {% for key, value in dest2.items %}
+                <option value="{{ value }}">{{ value }}</option>
+            {% endfor %}
+        </select><br>
+        <label>Departing</label>
+        <input type="date" class="from-control select-date" name="departing_date" pattern="\d{4}-\d{2}-\d{2}"><br>
+        <label>Returning</label>
+        <input type="date" class="from-control select-date" name="returning_date" pattern="\d{4}-\d{2}-\d{2}"><br>
+<input type="submit" name="btnsubmit" value="Submit" />
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,130 @@
+{% comment %} <html>
+<head>
+   
+    <title>Last Booked Ticket</title>
+</head>
+<body>
+    <h1>Booked Tickets</h1>
+
+    {% if booked_tickets %}
+        <table border="1">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Airport 1</th>
+                <th>Airport 2</th>
+                <th>Departing Date</th>
+                <th>Returning Date</th>
+                <th>Adults</th>
+                <th>Children</th>
+                <th>Price</th>
+            </tr>
+            {% for ticket in booked_tickets %}
+                <tr>
+                    <td>{{ ticket.name }}</td>
+                    <td>{{ ticket.email }}</td>
+                    <td>{{ ticket.phone }}</td>
+                    <td>{{ ticket.airport1 }}</td>
+                    <td>{{ ticket.airport2 }}</td>
+                    <td>{{ ticket.departing_date }}</td>
+                    <td>{{ ticket.returning_date }}</td>
+                    <td>{{ ticket.adults }}</td>
+                    <td>{{ ticket.children }}</td>
+                    <td>{{ ticket.price }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No booked tickets available.</p>
+    {% endif %}
+               {% comment %} <li> Name: {{ booktickets.name }}<br></li>
+               <li> Email: {{ booktickets.email }}<br></li>
+               <li> Phone: {{ booktickets.phone }}<br></li>
+               <li> Airport 1: {{ booktickets.airport1 }}<br></li>
+               <li>Airport 2: {{ booktickets.airport2 }}<br></li>
+               <li> Departing Date: {{ booktickets.departing_date }}<br></li>
+               <li> Returning Date: {{ booktickets.returning_date }}<br></li>
+               <li> Adults: {{ booktickets.adults }}<br></li>
+              <li>  Children: {{ booktickets.children }}<br></li>
+               <li>Price: {{ booktickets.price }}<br></li>
+               
+        </ul>  
+    </form>  
+    {% else %}
+    <p>Error: Unable to determine ticket ID.</p> {% endcomment %}
+{% comment %} {% endif %} {% endcomment %}
+      
+<!DOCTYPE html>
+<html>
+<head>
+  
+    <title>Booked Ticket Details</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        center {
+            margin-top: 50px;
+        }
+
+        h1 {
+            color: #007BFF;
+        }
+
+        h2 {
+            color: #343a40;
+        }
+
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            margin-bottom: 50px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #007BFF;
+            color: #fff;
+        }
+
+        p {
+            color: #343a40;
+        }
+    </style>
+</head>
+<body>
+    <center>
+    {% if Booking_successful %}
+        <h1>Booking successful!</h1>
+
+        <h2><u>Ticket details:</u></h2>
+        <p><u>Name:</u>   {{ ticket_details.name }}</p>
+        <p><u>Email:</u>   {{ ticket_details.email }}</p>
+        <p><u>Phone:</u>    {{ ticket_details.phone }}</p>
+        <p><u>Airport 1:</u>    {{ ticket_details.airport1 }}</p>
+        <p><u>Airport 2:</u>    {{ ticket_details.airport2 }}</p>
+        <p><u>Departing Date:  </u> {{ ticket_details.departing_date }}</p>
+        <p><u>Returning Date:</u> {{ ticket_details.returning_date }}</p>
+        <p><u>Adults:</u> {{ ticket_details.adults }}</p>
+        <p><u>Children:</u> {{ ticket_details.children }}</p>
+        <p><u>Price:</u> {{ ticket_details.price }}</p>
+        <h2> Dont forget to take screenshot of your booking page for proof.</h2>
+
+        <button type="button" value="Home" name="Home"><a href="{% url 'home1' %}"><span></span>Home</a></button>
+    {% else %}
+        <p>Booking not successful.</p>
+    {% endif %}
+    </center>
+</body>
+</html>

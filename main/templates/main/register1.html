@@ -1,0 +1,9 @@
+{% comment %} {% extends "main/base.html" %}
+{% block title %}Create an account {% endblock %}
+{% block content %}
+<form method="POST" class="form-group">
+    {{form}}
+    {% csrf_token %}
+    <button type="submit" class="btn btn-primary">Register</button>
+</form>
+{% endblock %} {% endcomment %}

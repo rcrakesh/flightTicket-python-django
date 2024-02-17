@@ -1,0 +1,54 @@
+{% extends "main/base.html" %}
+{% block content %}
+result : {{result}}
+
+{% endblock %}
+
+{% comment %} 
+from django.urls import reverse
+from django.shortcuts import render, redirect, get_object_or_404
+from .models import Flight, BookTickets
+
+def plane(request, flight_id=None):
+    if request.method == 'POST':
+        if flight_id is None:
+            # Retrieve the Flight object based on the flight_id
+            flight = get_object_or_404(Flight, id=flight_id)
+
+            # Your existing logic when flight_id is not None
+            name = request.POST['name']
+            email = request.POST['email']
+            phone = request.POST['phone']
+            airport1 = request.POST.get('flight.airport1', '')
+            airport2 = request.POST.get('flight.airport2', '')
+            departing_date = request.POST.get('flight.departing_date', '')
+            returning_date = request.POST.get('flight.returning_date', '')
+            adults = int(request.POST.get('adults', ''))
+            children = int(request.POST.get('children', ''))
+            price = int(request.POST.get('tp', ''))
+
+            # Create a BookTicket object related to the Flight
+            book_ticket = BookTickets.objects.create(
+                name=name,
+                email=email,
+                phone=phone,
+                airport1=airport1,
+                airport2=airport2,
+                departing_date=departing_date,
+                returning_date=returning_date,
+                adults=adults,
+                children=children,
+                price=price,
+            )
+
+            print("Booking successful")
+
+            # Render the plane.html template with the 'Booking_successful' context variable
+            return render(request, 'main/plane.html', {'Booking_successful': True})
+        else:
+            # Handle the case when flight_id is None
+            return render(request, 'main/error.html', {'error_message': 'Invalid flight_id'})
+    else:
+        # Handle the case when the request method is GET
+        return render(request, 'main/error.html', {'error_message': 'Invalid request method'})
+ {% endcomment %}
