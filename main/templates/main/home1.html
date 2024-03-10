@@ -211,13 +211,15 @@ li.ed{
                 <ul id='MenuItems'>
                     <li><a href='#'>Home</a></li>
                     
-                    <li><button type="button" ><a href="{% url 'booking' %}"><span></span>Book Tickets</a></button></li>
+                    
                     <li><a href='#'>Contact</a></li>
 
 					{% if user.is_authenticated %}
 
 					<li class="ed"> Hello, <u>{{user.username}}</u></li>
+					<li><button type="button" ><a href="{% url 'booking' %}"><span></span>Book Tickets</a></button></li>
                     <li><a href="{% url 'logout' %}">LogOut</a></li>
+
 					   {% else %}
                     <li><a href="{% url 'login' %}" >Login</a></li>
 					<li><a href="{% url 'register' %}">Register</a></li>
